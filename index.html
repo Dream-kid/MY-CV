@@ -1,245 +1,339 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Soarov Chakra Borty — CV</title>
-  <meta name="description" content="CV / Résumé of Soarov Chakra Borty: Software Engineer (iOS, C++, Swift, Objective‑C), ML/AI projects, publications, and competitive programming." />
+  <title>Soarov Chakra Borty · Portfolio</title>
+  <meta name="description" content="Portfolio of Soarov Chakra Borty — Software Engineer & iOS Developer." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --fg: #111827; /* slate-900 */
-      --muted: #374151; /* gray-700 */
-      --soft: #6b7280; /* gray-500 */
-      --accent: #0ea5e9; /* sky-500 */
-      --bg: #ffffff;
-      --chip: #f1f5f9; /* slate-100 */
-      --rule: #e5e7eb; /* gray-200 */
+      --bg: #0b0d12; /* dark */
+      --fg: #e6eaf2; /* light text */
+      --muted: #9aa6b2;
+      --card: #11151d;
+      --brand: #71b7ff;
+      --accent: #a3ffcf;
+      --link: #8ac1ff;
+      --border: #232a36;
     }
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --fg: #0b0d12;
+      --muted: #5a6572;
+      --card: #f6f8fb;
+      --brand: #1e88ff;
+      --accent: #0bbf7a;
+      --link: #1e88ff;
+      --border: #e5e9f0;
+    }
+
     html, body { height: 100%; }
     body {
-      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--fg); background: var(--bg); line-height: 1.55;
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg); color: var(--fg); line-height: 1.6;
     }
-    .container { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
-    header { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    h1 { margin: 0; font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; }
-    .subtitle { color: var(--soft); font-weight: 500; }
-    .contact { display: flex; flex-wrap: wrap; gap: 10px 16px; color: var(--muted); font-size: 14px; }
-    .contact a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--rule); }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
-    @media (min-width: 900px){ .grid { grid-template-columns: 2fr 1.2fr; gap: 40px; } }
-    section { margin-top: 28px; }
-    h2 { font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
-    .card { padding: 18px 18px; border: 1px solid var(--rule); border-radius: 14px; }
-    .row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: baseline; }
-    .title { font-weight: 650; }
-    .where { color: var(--muted); }
-    .when { color: var(--soft); font-size: 14px; }
-    .bullets { margin: 8px 0 0 18px; padding: 0; }
-    .bullets li { margin: 6px 0; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { background: var(--chip); border: 1px solid var(--rule); padding: 4px 10px; border-radius: 999px; font-size: 13px; }
-    .links a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; margin: 6px 8px 0 0; border: 1px solid var(--rule); border-radius: 10px; text-decoration: none; color: var(--fg); font-size: 14px; }
-    .links a:hover { border-color: var(--accent); }
-    .rule { height: 1px; background: var(--rule); margin: 18px 0; border: 0; }
-    footer { color: var(--soft); font-size: 12px; margin-top: 28px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    /* Print styles */
-    @media print {
-      .container { padding: 0; }
-      .card, .links a { border-color: #c7c7c7; }
-      a { color: black; text-decoration: none; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    header { position: sticky; top: 0; backdrop-filter: saturate(180%) blur(8px); background: color-mix(in oklab, var(--bg) 86%, transparent); border-bottom: 1px solid var(--border); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { font-weight: 700; letter-spacing: 0.3px; }
+    .nav a { margin-left: 16px; font-weight: 500; color: var(--fg); opacity: 0.9; }
+    .nav a:hover { opacity: 1; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); color: var(--fg); background: var(--card); cursor: pointer; }
+    .btn:hover { border-color: color-mix(in oklab, var(--border), var(--brand) 40%); }
+
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; padding-block: 36px; }
+    .hero h1 { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.1; margin: 0 0 12px; }
+    .hero p { margin: 8px 0 0; color: var(--muted); }
+    .hero .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .badge { background: var(--card); border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 13px; }
+
+    .grid { display: grid; gap: 16px; }
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    section { padding-block: 28px; border-top: 1px solid var(--border); }
+    h2 { font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .meta { font-size: 13px; color: var(--muted); }
+
+    .list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .list li { background: var(--card); border: 1px solid var(--border); padding: 14px; border-radius: 14px; }
+
+    footer { border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--muted); }
+
+    .kpis { display: flex; gap: 16px; flex-wrap: wrap; }
+    .kpi { flex: 1 1 160px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+    .kpi b { font-size: 20px; display: block; }
+
+    .sr-only { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .two, .three { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
+  <header>
+    <div class="container nav">
+      <div class="brand">Soarov Chakra Borty</div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+        <button id="theme" class="btn" title="Toggle theme" aria-label="Toggle theme">🌗</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="about">
       <div>
-        <h1>Soarov Chakra Borty</h1>
-        <div class="subtitle">Software Engineer • iOS (Swift/Objective‑C), C++, ML/AI</div>
+        <h1>Software Engineer & iOS Developer</h1>
+        <p>
+          3+ years building and shipping iOS apps end‑to‑end (design → deployment), with strong fundamentals in
+          data structures, algorithms, and product collaboration. Focus on robust, user‑friendly experiences.
+        </p>
+        <div class="badges">
+          <span class="badge">Swift</span>
+          <span class="badge">Objective‑C</span>
+          <span class="badge">C++</span>
+          <span class="badge">Python</span>
+          <span class="badge">MVVM/MVC</span>
+          <span class="badge">Git • Agile</span>
+        </div>
+        <p class="sub" style="margin-top:10px;">
+          Marietta, GA • <a href="tel:+16782291806">+1 (678) 229‑1806</a> • <a href="mailto:soarovchakraborty@gmail.com">soarovchakraborty@gmail.com</a>
+          • <a href="https://linkedin.com/in/soarovchakraborty/" target="_blank" rel="noreferrer">LinkedIn</a> • <a href="https://github.com/Dream-kid" target="_blank" rel="noreferrer">GitHub</a>
+        </p>
+        <div class="kpis" aria-label="Highlights">
+          <div class="kpi"><b>4+</b> iOS apps shipped</div>
+          <div class="kpi"><b>2000+</b> problems solved</div>
+          <div class="kpi"><b>Top‑charts</b> category ranks</div>
+        </div>
+        <p style="margin-top:14px;">
+          <a class="btn" href="assets/Soarov_Chakra_Borty_CV.pdf" download>Download CV</a>
+        </p>
       </div>
-      <div class="contact">
-        <span>Marietta, GA 30067, USA</span>
-        <a href="tel:+16782291806">+1 (678) 229‑1806</a>
-        <a href="mailto:soarovchakraborty@gmail.com">soarovchakraborty@gmail.com</a>
-        <a href="https://linkedin.com/in/soarovchakraborty/" target="_blank" rel="noreferrer">linkedin.com/in/soarovchakraborty</a>
-        <a href="https://github.com/Dream-kid" target="_blank" rel="noreferrer">github.com/Dream-kid</a>
+      <div class="card">
+        <h3>About me</h3>
+        <p>
+          Graduate Research Assistant at Kennesaw State University (NIH‑funded SafeCircle project). Previously Software Engineer at Kite Games Studio, where I designed and shipped production iOS features used by millions.
+        </p>
+        <p class="meta">MS in Information Technology (KSU, 4.00/4.00); B.Sc. in CSE (KUET).</p>
       </div>
-    </header>
+    </section>
 
-    <main class="grid">
-      <!-- LEFT COLUMN -->
-      <div>
-        <section>
-          <h2>Profile</h2>
-          <div class="card">
-            Software Engineer with 3 years of experience across the full software development life cycle. Proficient in C++, Swift, Objective‑C, and iOS app development. Strong foundation in Data Structures and Algorithms with 5+ years of problem‑solving experience and effective team collaboration.
-          </div>
-        </section>
-
-        <section>
-          <h2>Work Experience</h2>
-          <div class="card">
-            <div class="row">
-              <div>
-                <div class="title">Software Engineer — Kite Games Studio</div>
-                <div class="where">Dhaka, Bangladesh</div>
-              </div>
-              <div class="when">Aug 2021 – Dec 2024</div>
-            </div>
-            <ul class="bullets">
-              <li>Contributed to 4+ iOS apps on the App Store; several reached top ranks in category charts.</li>
-              <li>Built <em>IAPHelper</em> framework for in‑app purchases, billing, and subscriptions.</li>
-              <li>Led image‑processing features used by millions of users.</li>
-              <li>Collaborated with product/design to analyze and implement requirements.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h2>Professional Projects</h2>
-          <div class="card">
-            <div class="row">
-              <div class="title">Retouch — Photo Object Eraser</div>
-              <div class="when">Top charts • 400+ ratings</div>
-            </div>
-            <ul class="bullets">
-              <li>Designed Portrait & Spiral features using Core Image.</li>
-              <li>Increased user engagement by ~20% and retention by ~10%.</li>
-            </ul>
-            <div class="links">
-              <a href="https://apps.apple.com/us/app/retouch-remove-objects/id1619769150" target="_blank">App Store</a>
-            </div>
-            <hr class="rule" />
-            <div class="row">
-              <div class="title">Unblur — AI Photo Enhancer</div>
-              <div class="when">Stable Diffusion‑powered</div>
-            </div>
-            <ul class="bullets">
-              <li>Led end‑to‑end R&D, server integration, and complete UI build.</li>
-            </ul>
-            <div class="links">
-              <a href="https://apps.apple.com/us/app/id/6447248447" target="_blank">App Store</a>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Publications</h2>
-          <div class="card">
-            <ul class="bullets">
-              <li>Chakraborty S., Paul S., Hasan K.M.A., <strong>Transfer Learning with Deep CNN</strong> for COVID‑19/Pneumonia CXR Classification — <em>SN Computer Science</em>, 2022. <a href="https://link.springer.com/article/10.1007/s42979-021-00881-5" target="_blank">Paper</a></li>
-              <li>Chakraborty S. et al., <strong>RL Framework for Lung Segmentation</strong> — <em>PReMI’21</em>, LNCS, 2021. <a href="https://link.springer.com/chapter/10.1007/978-3-031-12700-7_23" target="_blank">Paper</a></li>
-              <li><strong>SQL vs NoSQL for COVID‑19 Genomics</strong> — <em>ICREST 2021</em>. <a href="https://ieeexplore.ieee.org/abstract/document/9331044" target="_blank">Paper</a></li>
-              <li><strong>Document from Hand‑Drawn Flowcharts</strong> — <em>TENSYMP 2020</em>. <a href="https://ieeexplore.ieee.org/abstract/document/9231033/" target="_blank">Paper</a></li>
-              <li><strong>Apple Leaf Disease Prediction</strong> — <em>ICREST 2021</em>. <a href="https://ieeexplore.ieee.org/abstract/document/9331132" target="_blank">Paper</a></li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h2>Research Experience</h2>
-          <div class="card">
-            <div class="row"><div class="title">SafeCircle — AI‑enabled mHealth for Dementia Care</div><div class="when"></div></div>
-            <ul class="bullets">
-              <li>iOS prototype combining AI and micro‑radar for fall/wandering detection in AD/ADRD.</li>
-            </ul>
-            <hr class="rule" />
-            <div class="row"><div class="title">Transfer Learning in Deep RL + NoSQL Retrieval</div><div class="when"></div></div>
-            <ul class="bullets">
-              <li>Stored/served CXR images & labels with MySQL/MongoDB/Cassandra; U‑Net for lung segmentation.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h2>Selected Projects</h2>
-          <div class="card">
-            <ul class="bullets">
-              <li><strong>Flow‑Chart Generator + HWR</strong> — Python, CNN/Keras/TensorFlow, OpenCV, Tkinter. <a href="https://github.com/Dream-kid/Flow-Chart-Generator-From-Hand-Drawn-Chart-And-Handwriting-Recognition" target="_blank">GitHub</a></li>
-              <li><strong>Problem‑Solving Management Website (PSMW)</strong> — ASP.NET, SQL/XAMPP. <a href="https://github.com/Dream-kid/Asp" target="_blank">GitHub</a></li>
-              <li><strong>Home Security with Raspberry Pi</strong> — Python, RFID, sensors. <a href="https://github.com/Dream-kid/Raspberry-pi-Project" target="_blank">GitHub</a></li>
-            </ul>
-          </div>
-        </section>
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="sub">Core technologies and tools I use regularly.</p>
+      <div class="grid three">
+        <div class="card">
+          <h3>Languages</h3>
+          <p>Swift, Objective‑C, C++, Python</p>
+        </div>
+        <div class="card">
+          <h3>Frameworks & Tools</h3>
+          <p>Xcode, Git/GitHub & Bitbucket, Google Mobile Ads SDK, StoreKit (IAP), MVVM/MVC, Agile</p>
+        </div>
+        <div class="card">
+          <h3>Foundations</h3>
+          <p>Data Structures & Algorithms, Dynamic Programming, Number Theory, Probability</p>
+        </div>
       </div>
+    </section>
 
-      <!-- RIGHT COLUMN -->
-      <aside>
-        <section>
-          <h2>Education</h2>
-          <div class="card">
-            <div class="row">
-              <div class="title">M.S. in Information Technology</div>
-              <div class="when">2025–2026</div>
-            </div>
-            <div class="where">Kennesaw State University — GPA 4.00/4.00 (expected May 2026)</div>
-            <hr class="rule" />
-            <div class="row">
-              <div class="title">B.Sc. in Computer Science & Engineering</div>
-              <div class="when">2017–2022</div>
-            </div>
-            <div class="where">KUET — CGPA 3.55/4.00 (last four terms 3.67)</div>
-          </div>
-        </section>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <p class="sub">Professional roles and impact.</p>
+      <div class="grid two">
+        <article class="card">
+          <h3>Kennesaw State University — Graduate Research Assistant</h3>
+          <p class="meta">Jan 2025 – Present • Marietta, GA</p>
+          <ul class="list">
+            <li>Research on mHealth, caregiver‑burnout management, and dementia technology (NIH SafeCircle).</li>
+            <li>Designed iOS features for secure caregiver/patient workflows.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Kite Games Studio — Software Engineer</h3>
+          <p class="meta">Aug 2021 – Dec 2024 • Dhaka, Bangladesh</p>
+          <ul class="list">
+            <li>Shipped 4+ iOS apps; some reached top chart positions in their categories.</li>
+            <li>Built <a href="https://github.com/KGS-Global/IAPHelper" target="_blank" rel="noreferrer">IAPHelper</a> framework for purchases, billing, and subscriptions.</li>
+            <li>Led image‑processing features used by millions of users.</li>
+            <li>Collaborated closely with PM/design for requirements and delivery.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-        <section>
-          <h2>Skills</h2>
-          <div class="card">
-            <div class="chips">
-              <span class="chip">Swift</span>
-              <span class="chip">Objective‑C</span>
-              <span class="chip">C++</span>
-              <span class="chip">Python</span>
-              <span class="chip">Xcode</span>
-              <span class="chip">Core Image</span>
-              <span class="chip">StoreKit / IAP</span>
-              <span class="chip">GitHub / Bitbucket</span>
-              <span class="chip">MVVM / MVC</span>
-              <span class="chip">Algorithms & DS</span>
-              <span class="chip">Agile</span>
-            </div>
-            <ul class="bullets">
-              <li>Google Mobile Ads SDK; StoreKit for in‑app purchases & subscriptions.</li>
-              <li>Solved 2000+ algorithmic problems.</li>
-            </ul>
-          </div>
-        </section>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="sub">Selected apps and builds.</p>
+      <div class="grid two">
+        <article class="card">
+          <h3>Retouch — Photo Object Eraser</h3>
+          <p class="meta"><a href="https://apps.apple.com/us/app/retouch-remove-objects/id1619769150" target="_blank" rel="noreferrer">App Store</a></p>
+          <p>Photo editing app with object removal, Portrait & Spiral features (Core Image). Achieved top‑chart rankings; 400 ratings. Drove +20% engagement and +10% retention.</p>
+        </article>
+        <article class="card">
+          <h3>Unblur — AI Photo Enhancer</h3>
+          <p class="meta"><a href="https://apps.apple.com/us/app/id/6447248447" target="_blank" rel="noreferrer">App Store</a></p>
+          <p>Enhances and restores old/low‑quality photos; integrates Stable Diffusion API with a custom iOS UI. Led R&D and full UI implementation.</p>
+        </article>
+        <article class="card">
+          <h3>Flow‑Chart Generator & Handwriting Recognition</h3>
+          <p class="meta"><a href="https://github.com/Dream-kid/Flow-Chart-Generator-From-Hand-Drawn-Chart-And-Handwriting-Recognition" target="_blank" rel="noreferrer">GitHub</a></p>
+          <p>Converts hand‑drawn flowcharts to editable diagrams; Python, CNN/Keras/TensorFlow, OpenCV, Tkinter; includes GUI app and report.</p>
+        </article>
+        <article class="card">
+          <h3>Problem‑Solving Management Website (PSMW)</h3>
+          <p class="meta"><a href="https://github.com/Dream-kid/Asp" target="_blank" rel="noreferrer">GitHub</a></p>
+          <p>Tracks problem submissions across online judges; ASP.NET + SQL, with documentation.</p>
+        </article>
+        <article class="card">
+          <h3>Home Security with Raspberry Pi</h3>
+          <p class="meta"><a href="https://github.com/Dream-kid/Raspberry-pi-Project" target="_blank" rel="noreferrer">GitHub</a></p>
+          <p>RFID‑based access with sensors and servo control; Python on Raspberry Pi; includes code and docs.</p>
+        </article>
+      </div>
+    </section>
 
-        <section>
-          <h2>Open Source & Links</h2>
-          <div class="card links">
-            <a href="https://github.com/KGS-Global/IAPHelper" target="_blank">IAPHelper (GitHub)</a>
-            <a href="https://codeforces.com/profile/iamSourav" target="_blank">Codeforces</a>
-            <a href="https://www.codechef.com/users/dream_kid" target="_blank">CodeChef</a>
-            <a href="https://uhunt.onlinejudge.org/id/884555" target="_blank">UVA Profile</a>
-          </div>
-        </section>
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul class="list">
+        <li>
+          A Transfer Learning Based Approach with Deep CNN for COVID‑19 and Pneumonia Affected Chest X‑ray Image Classification — SN Computer Science, Springer Nature (2022).
+          <span class="meta"> <a href="https://link.springer.com/article/10.1007/s42979-021-00881-5" target="_blank" rel="noreferrer">Journal</a></span>
+        </li>
+        <li>
+          A Reinforcement Learning Framework for Lung Segmentation of COVID‑19 and Pneumonia Affected Chest X‑Ray Image — PReMI 2021, LNCS, Springer.
+          <span class="meta"> <a href="https://link.springer.com/chapter/10.1007/978-3-031-12700-7_23" target="_blank" rel="noreferrer">Chapter</a></span>
+        </li>
+        <li>
+          Performance Comparison for Data Retrieval from NoSQL and SQL Databases: A Case Study for COVID‑19 Genome Sequence Dataset — ICREST 2021, IEEE.
+          <span class="meta"> <a href="https://ieeexplore.ieee.org/abstract/document/9331044" target="_blank" rel="noreferrer">IEEE</a></span>
+        </li>
+        <li>
+          Prediction of Apple Leaf Diseases Using Multiclass SVM — ICREST 2021, IEEE.
+          <span class="meta"> <a href="https://ieeexplore.ieee.org/abstract/document/9331132" target="_blank" rel="noreferrer">IEEE</a></span>
+        </li>
+      </ul>
+    </section>
 
-        <section>
-          <h2>Competitive Programming</h2>
-          <div class="card">
-            <ul class="bullets">
-              <li>NCPC 2020 — Team KUET_Crescendo (27th)</li>
-              <li>ACM‑ICPC Asia Dhaka 2019 — Team KUET_Crescendo (40th)</li>
-              <li>Multiple IUPCs 2018–2019; 2000+ problems solved</li>
-            </ul>
-          </div>
-        </section>
-      </aside>
-    </main>
+    <!-- EDUCATION & CONTESTS -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Kennesaw State University — MS in Information Technology</h3>
+          <p class="meta">2025 – Present • CGPA 4.00/4.00 • Expected May 2026</p>
+        </div>
+        <div class="card">
+          <h3>KUET — B.Sc. in Computer Science & Engineering</h3>
+          <p class="meta">2017 – 2022 • CGPA 3.55/4.00 (last four terms 3.67)</p>
+        </div>
+      </div>
+      <h2 style="margin-top:22px;">Competitive Programming</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Contests & Camps</h3>
+          <p>ICPC Asia Dhaka 2019 (Team Kuet_Crescendo, rank 40), NCPC 2020 (rank 27), multiple IUPCs; BACS Programming Camp 2017.</p>
+        </div>
+        <div class="card">
+          <h3>Online Platforms</h3>
+          <p>Codeforces (Max 1634, Expert) — <a href="https://codeforces.com/profile/iamSourav" target="_blank" rel="noreferrer">Profile</a><br>
+             CodeChef (Max 1898, Purple) — <a href="https://www.codechef.com/users/dream_kid" target="_blank" rel="noreferrer">Profile</a><br>
+             UVA (480+), SPOJ (100+)
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-      <div>Last updated: <span id="updated"></span>. Print this page to save as PDF.</div>
-    </footer>
-  </div>
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="sub">Reach out for collaborations or opportunities.</p>
+      <div class="card">
+        <p>
+          Email: <a href="mailto:soarovchakraborty@gmail.com">soarovchakraborty@gmail.com</a> • Phone: <a href="tel:+16782291806">+1 (678) 229‑1806</a>
+        </p>
+        <p>
+          LinkedIn: <a href="https://linkedin.com/in/soarovchakraborty/" target="_blank" rel="noreferrer">linkedin.com/in/soarovchakraborty</a> • GitHub: <a href="https://github.com/Dream-kid" target="_blank" rel="noreferrer">github.com/Dream-kid</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="y"></span> Soarov Chakra Borty. Built with semantic HTML, modern CSS, and a dash of JS. Hosted on GitHub Pages.</small>
+    </div>
+  </footer>
 
   <script>
-    document.getElementById('updated').textContent = new Date().toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'});
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle with persistence
+    const themeBtn = document.getElementById('theme');
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    themeBtn.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === 'light' ? 'dark' : (cur ? 'light' : 'light');
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+  <!-- Optional: JSON-LD for richer previews -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Soarov Chakra Borty",
+    "jobTitle": "Software Engineer & iOS Developer",
+    "email": "mailto:soarovchakraborty@gmail.com",
+    "telephone": "+1-678-229-1806",
+    "url": "https://dream-kid.github.io/",
+    "sameAs": [
+      "https://github.com/Dream-kid",
+      "https://linkedin.com/in/soarovchakraborty/"
+    ],
+    "knowsAbout": ["Swift", "Objective-C", "iOS", "C++", "Python"]
+  }
   </script>
 </body>
 </html>
