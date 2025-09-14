@@ -101,6 +101,14 @@
     .list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
     .list li { background: var(--card); border: 1px solid var(--border); padding: 14px; border-radius: 14px; }
 
+    /* Compact text inside cards to reduce large gaps */
+    .card p { margin: 8px 0; }
+
+    /* Compact, clean list (no card styling per item) for simple link lists */
+    .inline-list { list-style: none; padding: 0; margin: 6px 0 0; }
+    .inline-list li { margin: 6px 0; }
+    .inline-list a { text-decoration: none; }
+
     footer { border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--muted); }
 
     .kpis { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -123,6 +131,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
@@ -208,6 +217,34 @@
       </div>
     </section>
 
+    <!-- RESEARCH -->
+    <section id="research">
+      <h2>Research</h2>
+      <p class="sub">Health-tech and applied AI/ML work informed by real-world problems.</p>
+      <div class="grid two">
+        <article class="card">
+          <h3>SafeCircle (NIH-funded) — Kennesaw State University</h3>
+          <p class="meta">Graduate Research Assistant • Jan 2025 – Present</p>
+          <ul class="list">
+            <li>Contribute to an mHealth initiative supporting caregiver burnout management and dementia care.</li>
+            <li>Prototype and refine secure iOS features for caregiver/patient workflows with usability testing.</li>
+            <li>Collaborate with faculty and project stakeholders to translate research needs into app features.</li>
+            <li>Document findings and implementation details for reproducibility and future study phases.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Applied Research in Medical & Agricultural Imaging</h3>
+          <p class="meta">Undergraduate & early-career research (selected areas)</p>
+          <ul class="list">
+            <li>Deep learning for chest X-ray classification and lung segmentation (COVID-19 & pneumonia).</li>
+            <li>Comparative data-retrieval performance across SQL/NoSQL for large biomedical datasets.</li>
+            <li>Computer vision for plant pathology (apple leaf disease detection) with classic ML.</li>
+          </ul>
+          <p class="meta">See Publications below for peer-reviewed outputs.</p>
+        </article>
+      </div>
+    </section>
+
     <!-- PROJECTS -->
     <section id="projects">
       <h2>Featured Projects</h2>
@@ -279,25 +316,27 @@
       </div>
       <h2 style="margin-top:22px;">Competitive Programming</h2>
       <div class="grid two">
-      <div class="card">
-  <h3>Contests & Camps</h3>
-  <p>
-    Over the years, I have actively participated in national and international programming contests,
-    building strong teamwork, problem-solving, and algorithmic skills.
-  </p>
-  <ul class="list">
-    <li><strong>ICPC Asia Dhaka Regional 2019</strong> — Team <em>Kuet_Crescendo</em>, ranked <b>40th</b> among top universities.</li>
-    <li><strong>National Collegiate Programming Contest (NCPC) 2020</strong> — Achieved <b>27th place</b> in a highly competitive field.</li>
-    <li><strong>Inter-University Programming Contests (IUPCs)</strong> — Competed in multiple national-level competitions across Bangladesh.</li>
-    <li><strong>BACS Regional Programming Camp 2017</strong> — Intensive training camp focused on advanced algorithms and competitive programming strategies.</li>
-  </ul>
-</div>
+        <div class="card">
+          <h3>Contests & Camps</h3>
+          <p>
+            Over the years, I have actively participated in national and international programming contests,
+            building strong teamwork, problem-solving, and algorithmic skills.
+          </p>
+          <ul class="list">
+            <li><strong>ICPC Asia Dhaka Regional 2019</strong> — Team <em>Kuet_Crescendo</em>, ranked <b>40th</b> among top universities.</li>
+            <li><strong>National Collegiate Programming Contest (NCPC) 2020</strong> — Achieved <b>27th place</b> in a highly competitive field.</li>
+            <li><strong>Inter-University Programming Contests (IUPCs)</strong> — Competed in multiple national-level competitions across Bangladesh.</li>
+            <li><strong>BACS Regional Programming Camp 2017</strong> — Intensive training camp focused on advanced algorithms and competitive programming strategies.</li>
+          </ul>
+        </div>
         <div class="card">
           <h3>Online Platforms</h3>
-          <p>Codeforces (Max 1634, Expert) — <a href="https://codeforces.com/profile/iamSourav" target="_blank" rel="noreferrer">Profile</a><br>
-             CodeChef (Max 1898, Purple) — <a href="https://www.codechef.com/users/dream_kid" target="_blank" rel="noreferrer">Profile</a><br>
-            UVA (480+) — <a href="https://uhunt.onlinejudge.org/id/884555" target="_blank" rel="noreferrer">Profile</a><br>
-          </p>
+          <ul class="inline-list">
+            <li>Codeforces (Max 1634, Expert) — <a href="https://codeforces.com/profile/iamSourav" target="_blank" rel="noreferrer">Profile</a></li>
+            <li>CodeChef (Max 1898, Purple) — <a href="https://www.codechef.com/users/dream_kid" target="_blank" rel="noreferrer">Profile</a></li>
+            <li>UVA (480+) — <a href="https://uhunt.onlinejudge.org/id/884555" target="_blank" rel="noreferrer">Profile</a></li>
+            <li>SPOJ (100+) — <span class="meta">selected problems solved</span></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -358,6 +397,7 @@
         if (entry.isIntersecting && entry.intersectionRatio > 0.55) {
           navLinks.forEach(l => l.classList.remove('active'));
           link.classList.add('active');
+          history.replaceState(null, '', `#${id}`);
         }
       });
     }, {
